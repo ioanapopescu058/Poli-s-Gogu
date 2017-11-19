@@ -17,7 +17,6 @@ public class Gogu {
     public static void main(String[] args) {
         // TODO code application logic here
         //cvbcbvsdfsdfasdad
-        System.out.println("Hello");
     }
     
 }
