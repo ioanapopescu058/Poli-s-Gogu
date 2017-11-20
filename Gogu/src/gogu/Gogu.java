@@ -16,6 +16,7 @@ import javax.swing.*;
 public class Gogu {
 
     String command = new String();
+    public static JTextArea history;
     
     /**
      * @param args the command line arguments
@@ -26,7 +27,7 @@ public class Gogu {
         frame.setPreferredSize(new Dimension(800,600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JTextField cmd = new JTextField();
-        JTextArea history = new JTextArea();
+        history = new JTextArea();
         JScrollPane scroll = new JScrollPane(history);
         cmd.setPreferredSize(new Dimension(800, 100));
         scroll.setPreferredSize(new Dimension(800, 500));
@@ -34,6 +35,7 @@ public class Gogu {
         Font font = new Font("Courier", Font.BOLD,20);
         cmd.setFont(font);
         history.setFont(font);
+        history.setEditable(false);
         
         cmd.addKeyListener(new KeyAdapter() {
         @Override
@@ -66,6 +68,10 @@ public class Gogu {
             }
         });
     } 
+    
+    public static void addToHistory(String s) {
+        history.setText(history.getText() + '\n' + s);
+    }
     
     
 }
