@@ -61,10 +61,10 @@ public class InterpretCommand {
                 sistem.shutdown();
             }           
         }
-        else if(cmd.equalsIgnoreCase("calculator")){
+        else if(cmd.equalsIgnoreCase("notepad")){
             if(!st.hasMoreTokens()){
-                //deschide calculator(Aplicatia)
-                aplicatii.calculator();
+                //deschide notepad(Aplicatia)
+                aplicatii.notepad();
             }           
         }
         else if(cmd.equalsIgnoreCase("cmd")){
@@ -79,10 +79,10 @@ public class InterpretCommand {
                 aplicatii.player();
             }           
         }
-        else if(cmd.equalsIgnoreCase("calendar")){
+        else if(cmd.equalsIgnoreCase("calculator")){
             if(!st.hasMoreTokens()){
-                //deschide calendar
-                aplicatii.calendar();
+                //deschide calculator
+                aplicatii.calculator();
             }           
         }
         else if(cmd.equalsIgnoreCase("paint")){
