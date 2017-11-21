@@ -98,10 +98,9 @@ public class InterpretCommand {
             }           
         }
         else if(cmd.equalsIgnoreCase("twitch")){
-            if(st.hasMoreTokens()){
+            if(!st.hasMoreTokens()){
                 //deschide twitch la un joc
-                argument = st.nextToken();
-                web.twitch(argument);
+                web.twitch();
             }           
         }
         else if(cmd.equalsIgnoreCase("weathr")){
