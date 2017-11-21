@@ -7,10 +7,17 @@ package gogu;
 
 import java.awt.Desktop;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.css.StyleOrigin.USER_AGENT;
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  *
