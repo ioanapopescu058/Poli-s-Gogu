@@ -14,6 +14,7 @@ import java.util.*;
 public class InterpretCommand {
     
     public static void Resolve(String command){
+        ArrayList<String> twitchURL = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(command);
         String argument = new String();
         String cmd = st.nextToken();
@@ -118,12 +119,11 @@ public class InterpretCommand {
             }            
         }
         else if(cmd.equalsIgnoreCase("twitch")){
-            if(!st.hasMoreTokens()){
-                //deschide twitch la un joc
-                web.twitch();
-            }else{
-                Gogu.addToHistory("Wrong command!");
-            }            
+            //deschide twitch la un joc
+            while(st.hasMoreTokens()){
+                twitchURL.add(st.nextToken());
+            }
+            web.twitch(twitchURL);
         }
         else if(cmd.equalsIgnoreCase("weather")){
             if(st.hasMoreTokens()){
