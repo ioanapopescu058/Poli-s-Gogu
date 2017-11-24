@@ -32,52 +32,68 @@ public class InterpretCommand {
             if(!st.hasMoreTokens()){
                 //data locala
                 sistem.date();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("ipconfig")){
             if(!st.hasMoreTokens()){
                 //informatii retea
                 sistem.ipconfig();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("del")){
             if(st.hasMoreTokens()){
                 //sterge fisier
                 argument = st.nextToken();
                 sistem.del(argument);
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("mkdir")){
             if(st.hasMoreTokens()){
                 //creeaza folder
                 argument = st.nextToken();
                 sistem.mkdir(argument);
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         
         else if(cmd.equalsIgnoreCase("shutdown")){
             if(!st.hasMoreTokens()){
                 //inchide calculator
                 sistem.shutdown();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("notepad")){
             if(!st.hasMoreTokens()){
                 //deschide notepad(Aplicatia)
                 aplicatii.notepad();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("cmd")){
             if(!st.hasMoreTokens()){
                 //deschide cmd
                 aplicatii.cmd();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("player")){
             if(!st.hasMoreTokens()){
                 //deschide windows media player
                 aplicatii.player();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("calculator")){
             if(!st.hasMoreTokens()){
@@ -89,32 +105,42 @@ public class InterpretCommand {
             if(!st.hasMoreTokens()){
                 //deschide paint
                 aplicatii.paint();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("mail")){
             if(!st.hasMoreTokens()){
                 //deschide mail
                 web.mail();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("twitch")){
             if(!st.hasMoreTokens()){
                 //deschide twitch la un joc
                 web.twitch();
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
-        else if(cmd.equalsIgnoreCase("weathr")){
+        else if(cmd.equalsIgnoreCase("weather")){
             if(st.hasMoreTokens()){
                 //zice vremea
                 argument = st.nextToken();
                 web.weather(argument);
-            }           
+            }else{
+                Gogu.addToHistory("Wrong command!");
+            }            
         }
         else if(cmd.equalsIgnoreCase("currency")){
             if(st.hasMoreTokens()){
                 //iti zice cati bani n-ai
                 argument = st.nextToken();
                 web.currency(argument);
+            }else{
+                Gogu.addToHistory("Wrong command!");
             }           
         }
     }

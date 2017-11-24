@@ -92,7 +92,7 @@ public class aplicatii {
         else{
             try {
                 //inchide
-                Runtime.getRuntime().exec("taskkill /F /IM Calculator.exe");
+                Runtime.getRuntime().exec("taskkill /F /IM calc.exe");
             } catch (IOException ex) {
                 Logger.getLogger(aplicatii.class.getName()).log(Level.SEVERE, null, ex);
             }
