@@ -103,7 +103,7 @@ public class InterpretCommand {
                 web.twitch();
             }           
         }
-        else if(cmd.equalsIgnoreCase("weathr")){
+        else if(cmd.equalsIgnoreCase("weather")){
             if(st.hasMoreTokens()){
                 //zice vremea
                 argument = st.nextToken();
