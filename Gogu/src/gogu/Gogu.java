@@ -43,8 +43,8 @@ public class Gogu {
                 if(e.getKeyCode() == KeyEvent.VK_ENTER){
                    if(cmd.getText().length() != 0)
                    {
-                       InterpretCommand.Resolve(cmd.getText());
                        history.setText(history.getText()+'\n'+cmd.getText());
+                       InterpretCommand.Resolve(cmd.getText());
                        cmd.setText("");
                    }
                 }
