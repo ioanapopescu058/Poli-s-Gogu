@@ -41,7 +41,7 @@ public class web {
     }
     
     public static void twitch(ArrayList<String> param){
-        
+        //https://www.twitch.tv/directory/game/World%20of%20Warcraft
         String url = "https://www.twitch.tv/directory";
         if(param.size() > 0){
             url += "/game/" + param.get(0);
