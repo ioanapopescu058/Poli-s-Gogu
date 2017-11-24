@@ -16,6 +16,7 @@ import java.net.ProtocolException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javafx.css.StyleOrigin.USER_AGENT;
@@ -39,9 +40,18 @@ public class web {
         }       
     }
     
-    public static void twitch(){
+    public static void twitch(ArrayList<String> param){
+        
+        String url = "https://www.twitch.tv/directory";
+        if(param.size() > 0){
+            url += "/game/" + param.get(0);
+            
+            for(int i=1; i<param.size(); i++){
+                url += "%20" + param.get(i);
+            }
+        }
         try {
-            Desktop.getDesktop().browse(new URI("https://www.twitch.tv/directory"));
+            Desktop.getDesktop().browse(new URI(url));
         } catch (IOException | URISyntaxException ex) {
             Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
         }

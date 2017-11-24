@@ -16,6 +16,7 @@ public class InterpretCommand {
     public static void Resolve(String command){
         StringTokenizer st = new StringTokenizer(command);
         String argument = new String();
+        ArrayList<String> twitchURL = new ArrayList<String>();
         String cmd = st.nextToken();
         if(cmd.equalsIgnoreCase("time")){
             if(st.hasMoreTokens()){
@@ -98,10 +99,11 @@ public class InterpretCommand {
             }           
         }
         else if(cmd.equalsIgnoreCase("twitch")){
-            if(!st.hasMoreTokens()){
-                //deschide twitch la un joc
-                web.twitch();
-            }           
+            //deschide twitch la un joc
+            while(st.hasMoreTokens()){
+                twitchURL.add(st.nextToken());
+            }
+            web.twitch(twitchURL);       
         }
         else if(cmd.equalsIgnoreCase("weather")){
             if(st.hasMoreTokens()){
