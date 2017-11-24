@@ -6,7 +6,9 @@
 package gogu;
 
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -18,6 +20,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javafx.css.StyleOrigin.USER_AGENT;
 import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -45,6 +52,44 @@ public class web {
     }
     
     public static void currency(String param){
-        
-    }
+        //http://api.fixer.io/2016-05-20?base=EUR&symbols=RON
+        String head = "http://api.fixer.io/2016-05-20?base=";
+        String base = "&symbols=RON";
+        String URL = head+""+param+""+base;
+        URL obj;
+        try {
+            obj = new URL(URL);   
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            
+            // optional default is GET
+            con.setRequestMethod("GET");
+
+            int responseCode = con.getResponseCode();
+            if(responseCode == 200){           
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                }
+                in.close();
+
+                //Read JSON response and print
+                JSONObject jsResponse = new JSONObject(response.toString());
+                JSONObject exchangeValue = jsResponse.getJSONObject("rates");
+                String value = exchangeValue.get("RON").toString();
+                Gogu.addToHistory(param+" = "+value+" RON");
+            }
+            else{
+                Gogu.addToHistory("Wrong currency!");
+            }
+        } catch (MalformedURLException ex) {
+                Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+                Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+                Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
 }
