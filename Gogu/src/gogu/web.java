@@ -9,20 +9,16 @@ import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.css.StyleOrigin.USER_AGENT;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,13 +98,12 @@ public class web {
                 Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
                 Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JSONException ex) {
-                Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public static void currency(String param){
-        String head = "http://api.fixer.io/2016-05-20?base=";
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        String head = "http://api.fixer.io/"+date+"?base=";
         String base = "&symbols=RON";
         String URL = head+""+param+""+base;
         URL obj;
@@ -142,8 +137,6 @@ public class web {
         } catch (MalformedURLException ex) {
                 Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-                Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JSONException ex) {
                 Logger.getLogger(web.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
